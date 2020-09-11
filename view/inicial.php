@@ -43,6 +43,7 @@
 <body>
 	<?php
 		session_start();
+		$registro_ativo = empty($_SESSION['id_registro']) ? "" : $_SESSION['id_registro'];
 		ini_set('date.timezone', 'America/Sao_paulo');
 		$d = new DateTime();
 		$data_atual = $d->format('d/m/Y H:i:s');
@@ -52,7 +53,7 @@
 	<br><br>Valor/hora: R$ <?=$_SESSION['valorHora']?><hr>
 
 	<?php
-		if(($_SESSION['id_registro']) !== ""){
+		if(($registro_ativo) !== ""){
 			$data = date("d/m/Y", strtotime($_SESSION['data_inicio_registro']));
 			$horario = date("H:i:s", strtotime($_SESSION['data_inicio_registro']));
 			echo "<br>Existe um registro iniciado as ".$horario.", do dia ".$data."<a href='#' onclick='atualiza_registro(".$_SESSION['id_registro'].");'><br>Finalizar registro</a>";
