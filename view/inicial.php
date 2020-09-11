@@ -60,10 +60,9 @@
 		if(($registro_ativo) !== ""){
 			$data = date("d/m/Y", strtotime($_SESSION['data_inicio_registro']));
 			$horario = date("H:i:s", strtotime($_SESSION['data_inicio_registro']));
-			echo "<br>Existe um registro iniciado as ".$horario.", do dia ".$data."<a href='#' onclick='atualiza_registro(".$_SESSION['id_registro'].");'><br>Finalizar registro</a>";
+			echo "<br>Existe um registro iniciado as ".$horario.", do dia ".$data."   <button onclick='atualiza_registro(".$_SESSION['id_registro'].");'>Finalizar</button>";
 		} else{
 			echo "<br>Nenhum registro ativo no momento.";
-		}
 	?>
 <br><br><hr><br><br>
 <select name="id_projeto" id="id_projeto">
@@ -71,7 +70,12 @@
 	<option value="2">Estudos</option>
 	<option value="3">Front - fica tranquilo</option>
 </select>
-<a onclick="novo_registro()" href="#">Inserir registro</a>
+<button onclick='novo_registro()'>Inserir registro</button>
+<?php
+
+}
+
+?>
 <br><br><br>
 <span style="float: right; text-align: right;"><a href="sair.php">Sair</a></span>
 </body>
