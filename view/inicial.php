@@ -53,8 +53,8 @@
 		$data_atual = $d->format('d/m/Y H:i:s');
 	?>
 	<h2><i><center>Timesheet</center></i></h2>
-	<br><br><br>Olá, <b><?=$_SESSION['nome_usuario']?></b><span style='float: right; text-align: right;'><?=$data_atual?></span><hr>
-	<br><br>Valor/hora: R$ <?=$_SESSION['valorHora']?><hr>
+	<br><br>Olá, <b><?=$_SESSION['nome_usuario']?></b><span style='float: right; text-align: right;'><?=$data_atual?></span><hr>
+	<br>Valor/hora: R$ <?= $number = number_format(floatval($_SESSION['valorHora']), 2, ',', '.')?><br><br><hr>
 
 	<?php
 		if(($registro_ativo) !== ""){
