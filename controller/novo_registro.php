@@ -10,7 +10,7 @@
 	$registro = new Registro();
 
 	$data = $registro->novo_registro($usuario_id, $data_inicio);
-	$data = split("---", $data);
+	$data = explode("---", $data);
 	$_SESSION['id_registro'] = $data[0];
 	var_dump($data[1]);
 	$_SESSION['data_inicio_registro'] = $data[1];

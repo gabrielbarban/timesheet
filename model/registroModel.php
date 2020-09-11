@@ -29,6 +29,7 @@ class registro
 
 	public function novo_registro($usuario_id, $data_inicio)
 	{
+		//var_dump($data_inicio);exit;
 		$data_fim = "0000-00-00 00:00:00";
 		$crud = new Crud();
 		$query = "INSERT INTO registro (data_inicio, data_fim, usuario_id) VALUES('".$data_inicio."', '".$data_fim."', '".$usuario_id."')";
