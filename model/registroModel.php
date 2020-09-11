@@ -27,12 +27,12 @@ class registro
 		$crud->change($query);
 	}
 
-	public function novo_registro($usuario_id, $data_inicio)
+	public function novo_registro($usuario_id, $data_inicio, $id_projeto)
 	{
 		//var_dump($data_inicio);exit;
 		$data_fim = "0000-00-00 00:00:00";
 		$crud = new Crud();
-		$query = "INSERT INTO registro (data_inicio, data_fim, usuario_id) VALUES('".$data_inicio."', '".$data_fim."', '".$usuario_id."')";
+		$query = "INSERT INTO registro (data_inicio, data_fim, usuario_id, projeto_id) VALUES('".$data_inicio."', '".$data_fim."', '".$usuario_id."', '".$id_projeto."')";
 		$crud->change($query);
 
 		$query2 = "SELECT MAX(id) as 'id' FROM registro";

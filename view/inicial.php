@@ -26,9 +26,13 @@
 
       	function novo_registro()
       	{
+      		var id_projeto = $("#id_projeto").val();
 	        $.ajax({
 	                url: "../controller/novo_registro.php",
 	                dataType: "json",
+	                data: {
+	                	id_projeto: id_projeto
+	            	},
 	                success: function(data)
 	                {
 	                 	if(data=="OK"){
@@ -62,6 +66,11 @@
 		}
 	?>
 <br><br><hr><br><br>
+<select name="id_projeto" id="id_projeto">
+	<option value="1">Site Clínique</option>
+	<option value="2">Estudos</option>
+	<option value="3">Front - fica tranquilo</option>
+</select>
 <a onclick="novo_registro()" href="#">Inserir registro</a>
 <br><br><br>
 <span style="float: right; text-align: right;"><a href="sair.php">Sair</a></span>
