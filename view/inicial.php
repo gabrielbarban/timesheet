@@ -69,6 +69,7 @@
 	<option value="1">Site Clínique</option>
 	<option value="2">Estudos</option>
 	<option value="3">Front - fica tranquilo</option>
+	<option value="4">Captação de LEADS</option>
 </select>
 <button onclick='novo_registro()'>Inserir registro</button>
 	<?php

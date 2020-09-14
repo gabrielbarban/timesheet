@@ -7,8 +7,9 @@
 	$mes_busca = $_GET["mes"];
 	$ano_busca = $_GET["ano"];
 	$valor_minuto = $_SESSION['valorMinuto'];
+	$usuario_id = $_SESSION['id_usuario'];
 	$registro = new Registro();
-	$data = $registro->relatorio_registros($mes_busca, $ano_busca);
+	$data = $registro->relatorio_registros($mes_busca, $ano_busca, $usuario_id);
 	if(empty($data)){
 		echo json_encode($data);
 		exit;
@@ -32,7 +33,6 @@
 		$min_inicio = substr($d['data_inicio'], 14, 2);
 		$seg_inicio = substr($d['data_inicio'], 17, 2);
 
-
 		// variaveis data fim
 		$ano_fim = substr($d['data_fim'], 0, 4);
 		$mes_fim = substr($d['data_fim'], 5, 2);
@@ -55,7 +55,11 @@
 
 	$total_minutos = intval($total_minutos%60);
 
-	$dados['total_horas'] = intval($total_horas);
+	if($total_horas > 240){
+		$dados['total_horas'] = intval($total_horas-240);
+	} else{
+		$dados['total_horas'] = intval($total_horas);
+	}
 	$dados['total_minutos'] = intval($total_minutos);
 	$dados['valor_minuto'] = $valor_minuto;
 

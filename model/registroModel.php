@@ -39,11 +39,11 @@ class registro
 		return $data[0]['id']."---".$data_inicio;
 	}
 
-	public function relatorio_registros($mes, $ano)
+	public function relatorio_registros($mes, $ano, $usuario_id)
 	{
 		$periodo = $ano."-".$mes."-%";
 		$crud = new Crud();
-		$query = "SELECT * FROM registro WHERE data_inicio LIKE '".$periodo."' AND data_inicio LIKE '".$periodo."';";
+		$query = "SELECT * FROM registro WHERE usuario_id = '".$usuario_id."' AND data_inicio LIKE '".$periodo."' AND data_inicio LIKE '".$periodo."' AND data_fim != '0000-00-00 00:00:00';";
 		$data = $crud->find($query);
 		if(count($data) > 0){
 			return $data;			

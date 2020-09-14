@@ -34,6 +34,7 @@
 		                	
 		                	total_trabalhado = (total_horas*60) + total_minutos;
 		                	valor_total = total_trabalhado * valor_minuto;
+					valor_total = parseFloat(valor_total.toFixed(2));
 		                 	
 		                 	for(i=0 ; i<(response.length-3) ; i++){
 		                 		$("#resultado").append("Registro "+(i+1)+":<br><b>Entrada: </b>"+response[i][1]['data_inicio']+" - <b>Saída: </b>"+response[i][1]['data_fim']+"<br><br>");
