@@ -29,7 +29,6 @@ class registro
 
 	public function novo_registro($usuario_id, $data_inicio, $id_projeto)
 	{
-		//var_dump($data_inicio);exit;
 		$data_fim = "0000-00-00 00:00:00";
 		$crud = new Crud();
 		$query = "INSERT INTO registro (data_inicio, data_fim, usuario_id, projeto_id) VALUES('".$data_inicio."', '".$data_fim."', '".$usuario_id."', '".$id_projeto."')";
@@ -38,6 +37,19 @@ class registro
 		$query2 = "SELECT MAX(id) as 'id' FROM registro";
 		$data = $crud->find($query2);
 		return $data[0]['id']."---".$data_inicio;
+	}
+
+	public function relatorio_registros($mes, $ano)
+	{
+		$periodo = $ano."-".$mes."-%";
+		$crud = new Crud();
+		$query = "SELECT * FROM registro WHERE data_inicio LIKE '".$periodo."' AND data_inicio LIKE '".$periodo."';";
+		$data = $crud->find($query);
+		if(count($data) > 0){
+			return $data;			
+		} else{
+			return 0;
+		}
 	}
 }
 

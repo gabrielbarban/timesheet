@@ -71,11 +71,14 @@
 	<option value="3">Front - fica tranquilo</option>
 </select>
 <button onclick='novo_registro()'>Inserir registro</button>
-<?php
+	<?php
+		}
+	?>
+<br><br><hr><br>
 
-}
+<form action="../controller/relatorio.php" method="POST">
+<a href="relatorio.php">Relatório</a>
 
-?>
 <br><br><br>
 <span style="float: right; text-align: right;"><a href="sair.php">Sair</a></span>
 </body>
